@@ -14,14 +14,14 @@ public class Tabeller {
 	public static String tilStreng(int[] tabell) {
 
         StringBuilder strbg = new StringBuilder();
-        strbg.append("\"[");
+        strbg.append("[");
         for (int i = 0; i < tabell.length; i++) {
             strbg.append(tabell[i]);
             if (i < tabell.length - 1) {
                 strbg.append(",");
             }
         }
-        strbg.append("]\"");
+        strbg.append("]");
         return strbg.toString();
 	}
 
@@ -69,7 +69,7 @@ public class Tabeller {
 
 	// g)
 	public static boolean erSortert(int[] tabell) {
-        for (int i = 0; i < tabell.length; i++) {
+        for (int i = 0; i < tabell.length - 1; i++) {
             if (tabell[i] > tabell[i + 1]) {
                 return false;
             }
