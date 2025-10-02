@@ -9,7 +9,7 @@ public class Matriser {
 
         System.out.println("+-" + space(((longest/2 + longest + longest/2) * matrise.length) - 2) + "-+");
         for (int i = 0; i < stringMatrise.length; i++) {
-            System.out.print("| ");
+            System.out.print("|");
             for (int j = 0; j < stringMatrise[i].length; j++) {
                 System.out.print( space(longest/2) + stringMatrise[i][j] + space(longest/2));
             }
@@ -19,7 +19,7 @@ public class Matriser {
 	}
 
     static int findLongest(int[][] matrise) {
-        int longest = 0;
+        int longest = 2;
 
         for (int i = 0; i < matrise.length; i++) {
             for (int j = 0; j < matrise[i].length; j++) {
