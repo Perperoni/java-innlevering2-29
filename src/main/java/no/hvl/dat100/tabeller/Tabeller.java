@@ -6,7 +6,7 @@ public class Tabeller {
 	public static void skrivUt(int[] tabell) {
 
 		for (int i = 0; i < tabell.length; i++) {
-            System.out.println(tabell[i] + " ");
+            System.out.print(tabell[i] + ", ");
         }
 	}
 
