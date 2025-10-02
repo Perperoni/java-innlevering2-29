@@ -61,7 +61,7 @@ public class Matriser {
             }
             returnString += "\n";
         }
-
+        System.out.println(returnString);
         return returnString;
 	}
 
