@@ -7,15 +7,15 @@ public class Matriser {
         int longest = findLongest(matrise);
         String[][] stringMatrise = buildStringMatrise(matrise, longest);
 
-        System.out.println("YO! Eg fungerer");
+        System.out.println("+-" + space(((longest/2 + longest + longest/2) * matrise.length) - 2) + "-+");
         for (int i = 0; i < stringMatrise.length; i++) {
             System.out.print("| ");
             for (int j = 0; j < stringMatrise[i].length; j++) {
-                System.out.print(stringMatrise[i][j] + " ");
+                System.out.print( space(longest/2) + stringMatrise[i][j] + space(longest/2));
             }
             System.out.println("|");
         }
-        System.out.println("");
+        System.out.println("+-" + space(((longest/2 + longest + longest/2) * matrise.length) - 2) + "-+");
 	}
 
     static int findLongest(int[][] matrise) {
@@ -31,20 +31,24 @@ public class Matriser {
     }
 
     static String[][] buildStringMatrise(int[][] matrise, int longest) {
-        String[][] stringMatrise = new String[matrise.length][];
+        String[][] stringMatrise = new String[matrise.length][matrise[0].length];
 
         for (int i = 0; i < matrise.length; i++) {
             for (int j = 0; j < matrise[i].length; j++) {
                 String str = String.valueOf(matrise[i][j]);
 
-                String spacerStr = "";
-                for (int k = 0; k < longest - str.length(); k++) {
-                    spacerStr += " ";
-                }
-                stringMatrise[i][j] = spacerStr + str;
+                stringMatrise[i][j] = space(longest - str.length()) + str;
             }
         }
         return stringMatrise;
+    }
+
+    static String space(int length) {
+        String space = "";
+        for (int i = 0; i < length; i++) {
+            space += " ";
+        }
+        return space;
     }
 
 	// b)
