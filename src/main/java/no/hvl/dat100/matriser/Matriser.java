@@ -4,10 +4,52 @@ public class Matriser {
 
 	// a)
 	public static void skrivUt(int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("Metoden skrivUt ikke implementert");
+        int longest = findLongest(matrise);
+        String[][] stringMatrise = buildStringMatrise(matrise, longest);
+
+        System.out.println("+-" + space(((longest/2 + longest + longest/2) * matrise[0].length) - 2) + "-+");
+        for (int i = 0; i < stringMatrise.length; i++) {
+            System.out.print("|");
+            for (int j = 0; j < stringMatrise[i].length; j++) {
+                System.out.print( space(longest/2) + stringMatrise[i][j] + space(longest/2));
+            }
+            System.out.println("|");
+        }
+        System.out.println("+-" + space(((longest/2 + longest + longest/2) * matrise[0].length) - 2) + "-+");
 	}
+
+    static int findLongest(int[][] matrise) {
+        int longest = 2;
+
+        for (int i = 0; i < matrise.length; i++) {
+            for (int j = 0; j < matrise[i].length; j++) {
+                String str = String.valueOf(matrise[i][j]);
+                if (str.length() > longest) longest = str.length();
+            }
+        }
+        return longest;
+    }
+
+    static String[][] buildStringMatrise(int[][] matrise, int longest) {
+        String[][] stringMatrise = new String[matrise.length][matrise[0].length];
+
+        for (int i = 0; i < matrise.length; i++) {
+            for (int j = 0; j < matrise[i].length; j++) {
+                String str = String.valueOf(matrise[i][j]);
+
+                stringMatrise[i][j] = space(longest - str.length()) + str;
+            }
+        }
+        return stringMatrise;
+    }
+
+    static String space(int length) {
+        String space = "";
+        for (int i = 0; i < length; i++) {
+            space += " ";
+        }
+        return space;
+    }
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
