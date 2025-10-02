@@ -105,20 +105,28 @@ public class Matriser {
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
-        int[][] mirroredMatrix = copyEmptyMatrixInt(matrise);
+        int[][] transposedMatrix = copyEmptyMatrixInt(matrise);
         for (int i = 0; i < matrise.length; i++){
             for (int j = 0; j < matrise[i].length; j++) {
-                mirroredMatrix[i][j] = matrise[j][i];
+                transposedMatrix[i][j] = matrise[j][i];
             }
         }
-	    return mirroredMatrix;
+	    return transposedMatrix;
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
+        if (a[0].length != b.length) throw new UnsupportedOperationException("Kan ikke utføre matrise-multiplikasjon. For å kunne utføre matrise-multiplikasjon må antall kolonner i den første matrisen tilsvare antall rader i den andre matrisen.");
+        int[][] ab = new int[a.length][b[0].length];
 
-		// TODO
-		throw new UnsupportedOperationException("Metoden multipliser ikke implementert");
-	
+        for (int i = 0; i < ab.length; i++) {
+            for (int j = 0; j < ab[i].length; j++) {
+                int sum = 0;
+                for (int k = 0; k < a[i].length; k++) sum += a[i][k] * b[k][j];
+                ab[i][j] = sum;
+            }
+        }
+
+        return ab;
 	}
 }
