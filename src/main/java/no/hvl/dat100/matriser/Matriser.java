@@ -2,6 +2,20 @@ package no.hvl.dat100.matriser;
 
 public class Matriser {
 
+    static int[][] copyEmptyMatrixInt(int[][] matrise) {
+        int[][] copyMatrix = new int[matrise.length][];
+        for (int i = 0; i < matrise.length; i++) copyMatrix[i] = new int[matrise[i].length];
+
+        return copyMatrix;
+    }
+
+    static String[][] copyEmptyMatrixString(int[][] matrise) {
+        String[][] copyMatrix = new String[matrise.length][];
+        for (int i = 0; i < matrise.length; i++) copyMatrix[i] = new String[matrise[i].length];
+
+        return copyMatrix;
+    }
+
 	// a)
 	public static void skrivUt(int[][] matrise) {
         int longest = findLongest(matrise);
@@ -31,7 +45,7 @@ public class Matriser {
     }
 
     static String[][] buildStringMatrise(int[][] matrise, int longest) {
-        String[][] stringMatrise = new String[matrise.length][matrise[0].length];
+        String[][] stringMatrise = copyEmptyMatrixString(matrise);
 
         for (int i = 0; i < matrise.length; i++) {
             for (int j = 0; j < matrise[i].length; j++) {
@@ -67,7 +81,7 @@ public class Matriser {
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
-		int[][] multiplydMatrix = new int[matrise.length][matrise[0].length];
+		int[][] multiplydMatrix = copyEmptyMatrixInt(matrise);
 		for (int i = 0; i < matrise.length; i++) {
             for (int j = 0; j < matrise[i].length; j++) {
                 multiplydMatrix[i][j] = matrise[i][j] * tall;
@@ -91,11 +105,13 @@ public class Matriser {
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
-
-		// TODO
-
-		throw new UnsupportedOperationException("Metoden speile ikke implementert");
-	
+        int[][] mirroredMatrix = copyEmptyMatrixInt(matrise);
+        for (int i = 0; i < matrise.length; i++){
+            for (int j = 0; j < matrise[i].length; j++) {
+                mirroredMatrix[i][j] = matrise[j][i];
+            }
+        }
+	    return mirroredMatrix;
 	}
 
 	// f)
