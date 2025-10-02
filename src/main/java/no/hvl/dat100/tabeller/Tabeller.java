@@ -5,9 +5,14 @@ public class Tabeller {
 	// a)
 	public static void skrivUt(int[] tabell) {
 
-		for (int i = 0; i < tabell.length; i++) {
-            System.out.print(tabell[i] + ", ");
+        System.out.print("[");
+        for (int i = 0; i < tabell.length; i++) {
+            System.out.print(tabell[i]);
+            if (i < tabell.length - 1) {
+                System.out.print(", ");
+            }
         }
+        System.out.println("]");
 	}
 
 	// b)
