@@ -53,10 +53,16 @@ public class Matriser {
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
+        String returnString = "";
 
-		// TODO
-		throw new UnsupportedOperationException("Metoden tilStreng ikke implementert");
-		
+        for (int i = 0; i < matrise.length; i++) {
+            for (int j = 0; j < matrise[i].length; j++) {
+                returnString += String.valueOf(matrise[i][j]) + " ";
+            }
+            returnString += "\n";
+        }
+
+        return returnString;
 	}
 
 	// c)
