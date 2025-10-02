@@ -53,15 +53,15 @@ public class Matriser {
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
-        String returnString = "";
+        StringBuilder strBld  = new StringBuilder();
 
         for (int i = 0; i < matrise.length; i++) {
             for (int j = 0; j < matrise[i].length; j++) {
-                returnString += String.valueOf(matrise[i][j]) + " ";
+                strBld.append(matrise[i][j]).append(" ");
             }
-            returnString += "\n";
+            strBld.append("\n");
         }
-        System.out.println(returnString);
+        String returnString = strBld.toString();
         return returnString;
 	}
 
