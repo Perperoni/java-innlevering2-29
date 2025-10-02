@@ -7,6 +7,7 @@ public class Matriser {
         int longest = findLongest(matrise);
         String[][] stringMatrise = buildStringMatrise(matrise, longest);
 
+        System.out.println("YO! Eg fungerer");
         for (int i = 0; i < stringMatrise.length; i++) {
             System.out.print("| ");
             for (int j = 0; j < stringMatrise[i].length; j++) {
